@@ -1,0 +1,14 @@
+import os
+from os import path
+
+def prob3(file):
+    f = open(file, "a")
+    infos = dict()
+    infos = os.environ
+    for key, values in infos.items():
+        f.write(key + " " + values)
+        f.write('\n')
+    f.close()    
+    return infos
+
+print(prob3("ceva"))
