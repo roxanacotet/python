@@ -1,0 +1,23 @@
+import os
+from os import path
+
+def directory_infos(directoy):
+    infos = dict()
+    file_list = list()
+    dir_list = list()
+    total_size = 0
+    for root, directory, files in os.walk(directory):
+        for file in files:
+            if path.isfile(file) == True:
+                file_list.append(file)
+            elif path.isdir(file) == True:
+                dir_list.append(file)
+            fp = os.path.join(root, file)
+            total_size += os.path.getsize(fp)
+            
+    infos["full_path"] = os.path.abspath(directoy)
+    infos["total_size"] = total_size
+    infos["files"] = file_list
+    infos["dirs"] = dir_list
+
+print(directory_infos("director"))    
