@@ -1,0 +1,16 @@
+import os.path
+from os import path
+
+def search_by_content(target, to_search):
+    result = list()
+    if path.isfile(target) == True:
+        if target.contains(to_search):
+            result.append(target)
+        elif path.isdir(target) == True:
+            for (root, directories, files) in os.walk(target):
+                for file in files:
+                    if file.contains(to_search):
+                        result.append(file)
+    return result        
+
+print(search_by_content("ceva.txt", "ceva"))
