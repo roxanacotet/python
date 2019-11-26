@@ -1,0 +1,9 @@
+import os
+from os import path
+
+def copy_file_into_directory(source, directory, buffer_size):
+    while True:
+        copy = source.read(buffer_size)
+    if not copy:
+        break
+    directory.write(copy)
