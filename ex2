@@ -1,0 +1,15 @@
+import os
+from os import path
+
+def get_file_info(file_path):
+    result = dict()
+    result["full_path"] = os.path.abspath(file_path)
+    result["file_size"] = os.path.getsize(file_path)
+    result["file_extension"] = os.path.splitext(file_path)[1]
+    if (os.access(file_path, os.W_OK) and os.access(file_path, os.R_OK)):
+        result["can_read/can_write"] = True
+    else:
+        result["can_read/can_write"] = False
+    return result
+
+print(get_file_info("C:/Users/roxana.cotet/Desktop/TestRepo/RoxanaCotet.txt"))
